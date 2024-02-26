@@ -11,6 +11,7 @@ app.use(
   `${process.env.BASEURL}/upload`,
   express.static(path.join(__dirname, "./upload"))
 );
+// app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 const port = process.env.PORT;
 appRouter(app);
