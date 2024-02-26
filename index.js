@@ -15,4 +15,14 @@ app.use(
 app.use(cors());
 const port = process.env.PORT;
 appRouter(app);
+
+// global error handling middleware
+app.use((error, req, res, next) => {
+  res.status(error.statusCode || 500).json({
+    status: error.statusText || httpStatusText.ERROR,
+    message: error.message,
+    code: error.statusCode || 500,
+    data: null,
+  });
+});
 app.listen(port, () => console.log(`server running on port >>>> ${port}`));

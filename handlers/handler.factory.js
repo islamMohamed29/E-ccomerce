@@ -2,10 +2,20 @@ import asyncWrapper from "../middleware/asyncWrapper.js";
 import * as httpStatusText from "../utils/httpStatusText.js";
 import appError from "../utils/appError.js";
 import slugify from "slugify";
+import cloudinary from "../services/cloudinary.js";
 export function addOne(Model) {
   return asyncWrapper(async (req, res, next) => {
     req.body.slug = slugify(req.body.name);
-    req.body.image = req.file?.destination + "/" + req.file.filename;
+    if (req.body.image) {
+      const { secure_url } = await cloudinary.uploader.upload(
+        req.file.destination,
+        {
+          folder: `/${Model}/${req.currentUser._id}/${req.currentUser.name}`,
+        }
+      );
+      req.body.image = secure_url;
+    }
+    // req.body.image = req.file?.destination + "/" + req.file.filename;
     const document = new Model(req.body);
     await document.save();
     res.status(200).json({ status: httpStatusText.SUCCESS, document });

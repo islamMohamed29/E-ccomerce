@@ -1,7 +1,11 @@
 import { Router } from "express";
 const router = Router();
 import * as productController from "./controller/product.js";
-import { myMulterMany, multerValidation, HME } from "../../services/multer.js";
+import {
+  myMulterMany,
+  multerValidation,
+  HME,
+} from "../../services/multerCloud.js";
 import verifyToken from "../../middleware/verifyToken.js";
 import allowedTo from "../../middleware/allowedTo.js";
 import * as userRoles from "../../utils/userRoles.js";
@@ -14,7 +18,7 @@ router
   .post(
     verifyToken,
     allowedTo(userRoles.ADMIN, userRoles.USER),
-    myMulterMany("product", multerValidation.image, fields),
+    myMulterMany(multerValidation.image, fields),
     HME,
     productController.addProduct
   )

@@ -7,27 +7,29 @@ import {
   HME,
   multerValidation,
   myMulterSingle,
-} from "../../services/multer.js";
+} from "../../services/multerCloud.js";
 import verifyToken from "../../middleware/verifyToken.js";
 import allowedTo from "../../middleware/allowedTo.js";
 
 router
   .route("/")
   .post(
-    myMulterSingle("brand", multerValidation.image, "image"),
-    HME,
     verifyToken,
-    allowedTo(userRoles.ADMIN),
+    allowedTo(userRoles.ADMIN, userRoles.USER),
+    HME,
+    myMulterSingle(multerValidation.image, "image"),
     brandController.addBrand
   )
+
   .get(brandController.getBrands);
 
 router
   .route("/:id")
   .get(brandController.getBrand)
   .put(
-    myMulterSingle("brand", multerValidation.image, "image"),
     HME,
+    myMulterSingle(multerValidation.image, "image"),
+
     verifyToken,
     allowedTo(userRoles.ADMIN),
     brandController.updateBrand

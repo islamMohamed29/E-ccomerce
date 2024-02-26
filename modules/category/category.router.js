@@ -7,7 +7,7 @@ import {
   myMulterSingle,
   HME,
   multerValidation,
-} from "../../services/multer.js";
+} from "../../services/multerCloud.js";
 import verifyToken from "../../middleware/verifyToken.js";
 import allowedTo from "../../middleware/allowedTo.js";
 
@@ -42,7 +42,7 @@ router
     categoryController.getCategory
   )
   .put(
-    myMulterSingle("category", multerValidation.image, "image"),
+    myMulterSingle(multerValidation.image, "image"),
     HME,
     verifyToken,
     allowedTo(userRoles.ADMIN),
