@@ -1,10 +1,10 @@
 import multer from "multer";
 import { nanoid } from "nanoid";
-import path from "path";
-import { fileURLToPath } from "url";
+// import path from "path";
+// import { fileURLToPath } from "url";
 import fs from "fs";
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+// const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export const multerValidation = {
   image: ["image/png", "image/jpeg"],
@@ -25,10 +25,10 @@ let options = (customPath, customValidation) => {
   if (!customValidation) {
     customValidation = multerValidation.image;
   }
-  const fullPath = path.join(__dirname, `../upload/${customPath}`);
-  if (!fs.existsSync(fullPath)) {
-    fs.mkdirSync(fullPath, { recursive: true });
-  }
+  // const fullPath = path.join(__dirname, `../upload/${customPath}`);
+  // if (!fs.existsSync(fullPath)) {
+  //   fs.mkdirSync(fullPath, { recursive: true });
+  // }
   const storage = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null, `upload/${customPath}`);
