@@ -3,7 +3,7 @@ import * as httpStatusText from "../utils/httpStatusText.js";
 import appError from "../utils/appError.js";
 import slugify from "slugify";
 export function addOne(Model) {
-  return asyncWrapper(async (req, res) => {
+  return asyncWrapper(async (req, res, next) => {
     req.body.slug = slugify(req.body.name);
     req.body.image = req.file?.destination + "/" + req.file.filename;
     const document = new Model(req.body);
@@ -13,7 +13,7 @@ export function addOne(Model) {
 }
 
 export function getAll(Model) {
-  return asyncWrapper(async (req, res) => {
+  return asyncWrapper(async (req, res, next) => {
     const documents = await Model.find();
     if (!documents)
       return next(
