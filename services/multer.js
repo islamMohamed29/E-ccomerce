@@ -27,7 +27,7 @@ let options = (customPath, customValidation) => {
   }
   const fullPath = path.join(__dirname, `../upload/${customPath}`);
   if (!fs.existsSync(fullPath)) {
-    fs.mkdir(fullPath, { recursive: true });
+    fs.mkdirSync(fullPath, { recursive: true });
   }
   const storage = multer.diskStorage({
     destination: function (req, file, cb) {

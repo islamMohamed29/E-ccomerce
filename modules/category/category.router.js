@@ -22,7 +22,7 @@ router
 router
   .route("/")
   .post(
-    myMulterSingle("category", multerValidation.image, "image"),
+    myMulterSingle(multerValidation.image, "image"),
     HME,
     verifyToken,
     allowedTo(userRoles.ADMIN),
