@@ -1,7 +1,7 @@
 import asyncWrapper from "../../../middleware/asyncWrapper.js";
 import { userModel } from "../../../DB/model/user.model.js";
 import appError from "../../../utils/appError.js";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import generateToken from "../../../utils/generateJWT.js";
 import * as httpStatusText from "../../../utils/httpStatusText.js";
 
