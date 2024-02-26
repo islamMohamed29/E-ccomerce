@@ -1,11 +1,11 @@
 import dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
+import path from "path";
+import { fileURLToPath } from "url";
 import { appRouter } from "./modules/index.router.js";
 dotenv.config();
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-import path from "path";
-import { fileURLToPath } from "url";
 const app = express();
 app.use(
   `${process.env.BASEURL}/upload`,
