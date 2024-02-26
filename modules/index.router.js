@@ -32,7 +32,15 @@ export const appRouter = (app) => {
       message: `Hello dear user of my API ^_^, We are can't find this route: ${req.originalUrl} on server`,
     });
   });
-
+  // global error handling middleware
+  app.use((error, req, res, next) => {
+    res.status(error.statusCode || 500).json({
+      status: error.statusText || httpStatusText.ERROR,
+      message: error.message,
+      code: error.statusCode || 500,
+      data: null,
+    });
+  });
   // Connection DB
   connectDB();
 };
