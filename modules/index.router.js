@@ -28,9 +28,9 @@ export const appRouter = (app) => {
   app.use(`${baseUrl}/coupons`, couponRouter);
   app.use(`${baseUrl}/carts`, cartRouter);
   app.all("*", (req, res) => {
-    res
-      .status(404)
-      .json({ message: `can't find this route: ${req.originalUrl} on server` });
+    res.status(404).json({
+      message: `Hello dear user of my API ^_^, We are can't find this route: ${req.originalUrl} on server`,
+    });
   });
   // global error handling middleware
 
