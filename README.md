@@ -27,11 +27,13 @@ Here're some of the project's best features:
 
 <p>1. install dependencies</p>
 
+```
 npm install
 ```
 
 <p>2. Run Project</p>
 
+```
 npm run dev
 ```
 
