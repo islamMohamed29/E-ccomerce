@@ -31,7 +31,19 @@ Here're some of the project's best features:
 npm install
 ```
 
-<p>2. Run Project</p>
+<p>2. in file .env</p>
+
+```
+write your >> cloud_name api_key api_secret From your (Cloudinary) account.
+```
+
+<p>3. in file .env</p>
+
+```
+Write DBURI From your (Mongo Atlas) account.
+```
+
+<p>4. Run Project</p>
 
 ```
 npm run dev
