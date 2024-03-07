@@ -59,9 +59,6 @@ Technologies used in the project:
 *   Express.js
 *   Node.js
 
-<h2>🛡️ License:</h2>
-
-This project is licensed under the Copyright © \[2024\] \[islamMohamed\] Permission is hereby granted free of charge to any person obtaining a copy of this software and associated documentation files Enjoy.
 
 <h2>💖Like my work?</h2>
 
