@@ -2,12 +2,6 @@
 
 <p align="center"><img src="https://socialify.git.ci/islamMohamed29/E-ccomerce/image?description=1&amp;font=Inter&amp;issues=1&amp;language=1&amp;name=1&amp;owner=1&amp;pattern=Charlie%20Brown&amp;stargazers=1&amp;theme=Light" alt="project-image"></p>
 
-<h2>🚀 Demo</h2>
-
-[https://e-ccomerce.vercel.app/](https://e-ccomerce.vercel.app/)
-
-  
-  
 <h2>🧐 Features</h2>
 
 Here're some of the project's best features:
