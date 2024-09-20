@@ -22,19 +22,11 @@ router
     HME,
     productController.addProduct
   )
-  .get(
-    verifyToken,
-    allowedTo(userRoles.ADMIN, userRoles.USER),
-    productController.getProducts
-  );
+  .get(productController.getProducts);
 
 router
   .route("/:id")
-  .get(
-    verifyToken,
-    allowedTo(userRoles.ADMIN, userRoles.USER),
-    productController.getProduct
-  )
+  .get(productController.getProduct)
   .put(
     verifyToken,
     allowedTo(userRoles.ADMIN, userRoles.USER),
